@@ -1,0 +1,78 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 4/05/2021, 09:03:42 AM
+    Author     : Hola
+*/
+
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+.head-container{
+    background-color: rgba(187, 15, 81, 0.884);
+    color:white;
+    text-align: center;
+    padding: 4px;
+}
+
+h2{
+    padding: 10px;
+}
+section, footer{
+    padding: 8px;
+}
+
+article{
+    width: 12%;
+    display:inline-block;
+    height: 10rem;
+}
+footer{
+    background-color: violet;
+    text-align: center;
+
+}
+.container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+.columna1{
+    width: 100%;
+    padding-block-end: 2.5rem;
+    text-align: center;
+}
+@media (min-width: 1000px) {
+    .columna1 {
+        width: 90%;
+        -webkit-order: 1;
+        order: 1;
+        background-color: rgb(17, 136, 184);
+    }
+}
+
+.select{
+    padding-top: 64px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.style_prevu_kit{
+    text-align: center;
+    display: inline-block;
+    border: 0;
+    width: 150px;
+    height: 200px;
+    position: relative;
+    -webkit-transition: all 200ms ease-out;
+    -webkit-transform: scale(1);       
+}

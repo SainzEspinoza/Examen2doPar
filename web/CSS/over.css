@@ -21,6 +21,10 @@ and open the template in the editor.
     padding: 4px;
 }
 
+.iniciobg{
+    background-color: #f7d794;
+}
+
 h2{
     padding: 10px;
 }

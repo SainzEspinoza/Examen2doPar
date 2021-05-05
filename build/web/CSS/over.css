@@ -21,6 +21,10 @@ and open the template in the editor.
     padding: 4px;
 }
 
+.iniciobg{
+    background-color: #f7d794;
+}
+
 h2{
     padding: 10px;
 }
@@ -75,4 +79,105 @@ footer{
     position: relative;
     -webkit-transition: all 200ms ease-out;
     -webkit-transform: scale(1);       
+}
+
+.principal{
+    width: 70%;
+    height: 100vh;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+/*
+    Div de registro
+*/
+
+.registro{
+    width: 320px;
+    height: 420px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;    
+}
+
+.registro img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.registro form{
+    font-family: 'Red Hat Display', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.registro h4{
+    margin-top: 2em;
+    margin-bottom: 1em;
+    color: #574b90;
+    font-size: 22px;
+    font-family: 'Lobster', cursive;
+}
+
+.registro label{
+    margin: 0;
+    padding: 0;
+    display: block;
+    font-family: 'Assistant', sans-serif;
+}
+
+.registro input{
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+
+.registro input[type="text"],
+.registro input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #94B7F7;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: black;
+    font-size: 15px;
+}
+
+.registro input[type="button"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #a29bfe;
+    color: #2d3436;
+    font-size: 18px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.registro input[type="button"]:hover{
+    background: #6c5ce7;
+    color: #fff;
+    
+}
+
+.registro a{
+    color: black;
+    font-size: 12px;
+    line-height: 20px;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.registro a:hover{
+    color: #636e72;
+    text-decoration: underline;
+}
+
+::placeholder{
+    color: #303952;
 }

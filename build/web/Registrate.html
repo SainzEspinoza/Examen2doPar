@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Registrate</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -14,7 +14,7 @@ and open the template in the editor.
         <div class="container">
             <div class="contenedorRegistro">
                 <form method="post" name="formulario" 
-                      action="Registrate">
+                      action="Registro">
                     <label>Nombre: </label>
                     <br>
                     <input type="text" name="nombre">
@@ -55,28 +55,16 @@ and open the template in the editor.
                     <br>
                     <input type="number" name="cel">
                     <br>
+                    <label>Usuario </label>
+                    <br>
+                    <input type="number" name="usu">
+                    <br><label>Contraseña </label>
+                    <br>
+                    <input type="number" name="con">
+                    <br>
                     <input type="submit" value="Registrar Usuario">
                 </form>
             </div>
-            
-            
-            <div class="contenedorConsultar">
-                <br>
-                <form name="formularioConsultar" method="get" action="Consultar">
-                    <input type="submit" value="Consultar Tabla general de Usuarios">
-                </form>    
-            </div>
-                <br>
-            <div class="contenedorEliminar">
-                <br>
-                <form name="formularioEliminar" method="post" action="Eliminar">
-                    <label>Ingresa el ID del usuario a eliminar</label>
-                    <input type="text" name="ideliminar">
-                    <input type="submit" value="Eliminar Registro">
-                </form>
-            </div>
-                <br>
-           
         </div>
     </body>
 </html>

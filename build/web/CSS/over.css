@@ -140,7 +140,7 @@ footer{
 .registro input[type="text"],
 .registro input[type="password"]{
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #94B7F7;
     background: transparent;
     outline: none;
     height: 40px;
@@ -148,7 +148,7 @@ footer{
     font-size: 15px;
 }
 
-.registro input[type="submit"]{
+.registro input[type="button"]{
     border: none;
     outline: none;
     height: 40px;
@@ -159,7 +159,7 @@ footer{
     transition: all 0.3s;
 }
 
-.registro input[type="submit"]:hover{
+.registro input[type="button"]:hover{
     background: #6c5ce7;
     color: #fff;
     

@@ -10,27 +10,67 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+//Esta se encarga del objeto para la conexion con la base de datos
+import java.sql.Connection;
+import java.sql.DriverManager;
+//Esta se encarga de poder realizar las sentencias SQl como son:
+//insert, delete, update, create, alter, drop
+import java.sql.Statement;
+//Esta se encarga para generar un objeto para poder realizar las consultas SQL
+import java.sql.ResultSet;
+import javax.servlet.ServletConfig;
 
 /**
  *
  * @author Hola
  */
-public class Registrate extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
+public class Registro extends HttpServlet {
+
+    //variables globales
+    private Connection con;
+    private Statement set;
+    private ResultSet rs;
+    
+    //constructor
+    public void init(ServletConfig cfg) throws ServletException{
+        
+        String url = "jdbc:mysql:3306//localhost/baseusuarios";
+        
+        String userName = "root";
+        String password = "Jesus.sainz1";
+        
+        try{
+            
+            Class.forName("com.mysql.jdbc.Driver");
+             /*
+            A veces el tipo de driver ya tiene incluido el puerto de comunicacion,
+            es por ello que nos arroja un error de conexion, para resolver este error,
+            simplemente hacemos lo siguiente:
+            url ="jdbc:mysql://localhost/registro4iv9";
+            */
+            url = "jdbc:mysql://localhost/baseusuarios";
+            con =DriverManager.getConnection(url, userName, password);
+            set = con.createStatement();
+        
+            System.out.println("Conexion exitosa");
+        
+        }catch(Exception e){
+            System.out.println("Conexion no exitosa");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+        }
+    }
+    
+    
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            
             
             String nom, appat, apmat, domi;
             int edad, mes, dia, año, tel, cel, usu, con;
@@ -48,7 +88,20 @@ public class Registrate extends HttpServlet {
             usu = Integer.parseInt(request.getParameter("usu"));
             con = Integer.parseInt(request.getParameter("con"));
             
+            //registrar en la base de datos
             
+            try{
+                
+                String q = "insert into regi "
+                        + "(nom_usu, appat_usu, apmat_usu, domi_usu, edad_usu,"
+                        + " mes_usu, dia_usu, año_usu, tel_usu, cel_usu, usu_usu, con_usu)"
+                        + "values "
+                        + "('"+nom+"', '"+appat+"', '"+apmat+"', '"+domi+"', "+edad+""
+                        + ""+mes+", "+dia+", "+año+", "+tel+", "+cel+", '"+usu+"', '"+con+"')";
+                
+                set.executeUpdate(q);
+                System.out.println("Registro exitoso en la tabla");
+                
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -56,13 +109,32 @@ public class Registrate extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Registro Exitoso</h1>"
-                    
-                    + "<a href='Login.html'>Iniciar Sesión</a>");
+                    + "<h3>hola</h3>"
+                    + "<a href='login.html'>Iniciar Sesión</a>");
             out.println("</body>");
             out.println("</html>");
+            
+            }catch(Exception e){
+                System.out.println("Error al registrar");
+                System.out.println(e.getMessage());
+                System.out.println(e.getStackTrace());
+                
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Registrate</title>");            
+            out.println("</head>");
+            out.println("<body>"
+                    + "<br>");
+            out.println("<h1>Registro No Exitoso, ocurrió un error</h1>"
+                    + "<a href='login.html'>Iniciar Sesión</a>");
+            out.println("</body>");
+            out.println("</html>");
+                
+            }
         }
     }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -97,9 +169,19 @@ public class Registrate extends HttpServlet {
      *
      * @return a String containing servlet description
      */
+    
+    public void destroy(){
+        try{
+            con.close();
+        }catch(Exception e){
+            super.destroy();
+        }
+    }
     @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+    
 }
+
+

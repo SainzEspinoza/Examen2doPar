@@ -24,17 +24,10 @@ import javax.servlet.ServletConfig;
  *
  * @author Hola
  */
-public class Registrate extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
+public class Registro extends HttpServlet {
+
     //variables globales
     private Connection con;
     private Statement set;
@@ -43,7 +36,7 @@ public class Registrate extends HttpServlet {
     //constructor
     public void init(ServletConfig cfg) throws ServletException{
         
-        String url = "jdbc:mysql:3306//localhost/Registrate";
+        String url = "jdbc:mysql:3306//localhost/baseusuarios";
         
         String userName = "root";
         String password = "Jesus.sainz1";
@@ -51,18 +44,22 @@ public class Registrate extends HttpServlet {
         try{
             
             Class.forName("com.mysql.jdbc.Driver");
-            //url = "jdbc:mysql://localhost/registro";   
-            url = "jdbc:mysql://localhost/Registrate"; 
-            con = DriverManager.getConnection(url, userName, password);
+             /*
+            A veces el tipo de driver ya tiene incluido el puerto de comunicacion,
+            es por ello que nos arroja un error de conexion, para resolver este error,
+            simplemente hacemos lo siguiente:
+            url ="jdbc:mysql://localhost/registro4iv9";
+            */
+            url = "jdbc:mysql://localhost/baseusuarios";
+            con =DriverManager.getConnection(url, userName, password);
             set = con.createStatement();
-            
-            System.out.println("Conexion Exitosa");
+        
+            System.out.println("Conexion exitosa");
         
         }catch(Exception e){
-            System.out.println("Conexión No exitosa");
-            System.out.println(e.getMessage());//mensaje de error
-            System.out.println(e.getStackTrace());//donde se originó el error
-        
+            System.out.println("Conexion no exitosa");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
         }
     }
     
@@ -73,6 +70,7 @@ public class Registrate extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            
             
             String nom, appat, apmat, domi;
             int edad, mes, dia, año, tel, cel, usu, con;
@@ -94,7 +92,7 @@ public class Registrate extends HttpServlet {
             
             try{
                 
-                String q = "insert into registrarte "
+                String q = "insert into regi "
                         + "(nom_usu, appat_usu, apmat_usu, domi_usu, edad_usu,"
                         + " mes_usu, dia_usu, año_usu, tel_usu, cel_usu, usu_usu, con_usu)"
                         + "values "
@@ -104,9 +102,6 @@ public class Registrate extends HttpServlet {
                 set.executeUpdate(q);
                 System.out.println("Registro exitoso en la tabla");
                 
-                
-            
-            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -139,7 +134,7 @@ public class Registrate extends HttpServlet {
             }
         }
     }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -174,9 +169,19 @@ public class Registrate extends HttpServlet {
      *
      * @return a String containing servlet description
      */
+    
+    public void destroy(){
+        try{
+            con.close();
+        }catch(Exception e){
+            super.destroy();
+        }
+    }
     @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+    
 }
+
+

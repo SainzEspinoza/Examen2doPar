@@ -86,10 +86,11 @@ footer{
     height: 100vh;
     margin-left: 15%;
     margin-right: 15%;
+    margin-top: 2em;
 }
 
 /*
-    Div de registro
+    Div de inicio de sesión
 */
 
 .registro{
@@ -181,3 +182,115 @@ footer{
 ::placeholder{
     color: #303952;
 }
+
+/*
+    Registro de usuario
+*/
+.registrarUsuario{
+    width: 320px;
+    height: 420px;
+    top: 15em;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;    
+}
+
+.registrarUsuario form{
+    font-family: 'Red Hat Display', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.registrarUsuario h4{
+    margin-top: 2em;
+    margin-bottom: 1em;
+    color: #574b90;
+    font-size: 22px;
+    font-family: 'Lobster', cursive;
+}
+
+.registrarUsuario label{
+    margin: 0;
+    padding: 0;
+    display: block;
+    font-family: 'Assistant', sans-serif;
+}
+
+.registrarUsuario input{
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+
+.registrarUsuario input[type="text"],
+.registrarUsuario input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #94B7F7;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: black;
+    font-size: 15px;
+}
+
+.registrarUsuario input[type="button"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #a29bfe;
+    color: #2d3436;
+    font-size: 18px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.registrarUsuario input[type="button"]:hover{
+    background: #6c5ce7;
+    color: #fff;
+    
+}
+
+.eliminar input[type="button"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #c44569;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.eliminar input[type="button"]:hover{
+    background: #cf6a87;
+    color: #2d3436;
+}
+
+.registrarUsuario a{
+    color: black;
+    font-size: 12px;
+    line-height: 20px;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.registrarUsuario a:hover{
+    color: #636e72;
+    text-decoration: underline;
+}
+
+.eliminar{
+    background-color: #c44569;
+    padding: 1em;
+    text-align: center;
+    border-radius: 20px;
+    margin: 1em;
+    color: white;
+}
+
+.botonEliminar{
+    background: transparent;
+    height: 200px;
+
+}
+

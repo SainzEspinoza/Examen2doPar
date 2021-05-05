@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.barra{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 55px;
+    background-color: #786fa6;
+    align-items: center;
+    
+}
+
+.barra p{
+    font-family: 'Lobster', cursive;
+    color: white;
+    font-size: 20px;
+    text-shadow: 2px 5px 18px black;
+}
+
+.barra div{
+    padding-left: 25px;
+}
+
+nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+nav a{
+    text-decoration: none;
+    color: #d1d8e0;
+    height: 100vh;
+}
+
+.asides{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+aside{
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    height: 100vh;
+    
+}
+
+.asideDerecha{
+    background-color: #786fa6;
+}
+
+/*
+    Registro estilos
+*/
+
+.registro{
+    width: 320px;
+    height: 420px;
+    top: 45%;
+    left: 75%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    
+    box-sizing: border-box;
+}
+
+.registro img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+.registro form{
+    font-family: 'Red Hat Display', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.registro h4{
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.registro label{
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.registro input{
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+
+.registro input[type="text"],
+.registro input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: white;
+    font-size: 15px;
+}
+
+.registro input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #a29bfe;
+    color: #2d3436;
+    font-size: 18px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.registro input[type="submit"]:hover{
+    background: #6c5ce7;
+    color: #fff;
+    
+}
+
+.registro a{
+    color: #303952;
+    font-size: 12px;
+    line-height: 20px;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.registro a:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+::placeholder{
+    color: #303952;
+}
+
+footer{
+    color: white;
+    background-color: #574b90;
+    text-align: center;
+    justify-content: center;
+    height: 50px;    
+    margin-top: auto;
+}

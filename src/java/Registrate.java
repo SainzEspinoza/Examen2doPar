@@ -31,13 +31,33 @@ public class Registrate extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            
+            String nom, appat, apmat, domi;
+            int edad, mes, dia, año, tel, cel, usu, con;
+            
+            nom = request.getParameter("nombre");
+            appat = request.getParameter("appat");
+            apmat = request.getParameter("apmat");
+            domi = request.getParameter("domi");
+            edad = Integer.parseInt(request.getParameter("edad"));
+            mes = Integer.parseInt(request.getParameter("mes"));
+            dia = Integer.parseInt(request.getParameter("dia"));
+            año = Integer.parseInt(request.getParameter("año"));
+            tel = Integer.parseInt(request.getParameter("tel"));
+            cel = Integer.parseInt(request.getParameter("cel"));
+            usu = Integer.parseInt(request.getParameter("usu"));
+            con = Integer.parseInt(request.getParameter("con"));
+            
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet Registrate</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Registrate at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Registro Exitoso</h1>"
+                    
+                    + "<a href='Login.html'>Iniciar Sesión</a>");
             out.println("</body>");
             out.println("</html>");
         }
